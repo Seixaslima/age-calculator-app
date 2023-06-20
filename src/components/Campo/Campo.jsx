@@ -4,9 +4,9 @@ import React from 'react';
 
 export default function Campo({ label, placeholder }) {
   return (
-    <div className="Campo">
+    <div className="campo">
       <label>{label}</label>
-      <input type="number" placeholder={placeholder} />
+      <input placeholder={placeholder} required={true} />
     </div>
   );
 }

@@ -1,3 +1,17 @@
 .forms {
-  display: block;
+  display: flex;
+  gap: 32px;
+}
+
+.submit {
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  background-color: hsl(259, 100%, 65%);
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: black;
 }

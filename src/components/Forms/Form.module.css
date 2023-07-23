@@ -1,0 +1,40 @@
+.forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.campos {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+}
+
+.submit {
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: hsl(259, 100%, 65%);
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.submit:hover {
+  background-color: black;
+}
+
+@media screen and (max-width: 375px) {
+  .forms {
+    gap: 10px;
+  }
+  .campos {
+    gap: 0px;
+    justify-content: space-around;
+  }
+
+  .submit {
+    margin: 0 auto;
+  }
+}

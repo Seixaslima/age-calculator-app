@@ -1,0 +1,27 @@
+.card {
+  width: 500px;
+  padding: 20px 40px;
+  margin: 25vh auto;
+
+  background-color: white;
+  border-radius: 15px;
+  border-bottom-right-radius: 100px;
+}
+
+.barra {
+  content: "";
+  border-bottom: 1px solid hsl(0, 0%, 86%);
+  margin-top: -30px;
+}
+
+@media screen and (max-width: 375px) {
+  .card {
+    width: 350px;
+    padding: 20px 10px;
+    margin: 50px auto;
+  }
+
+  .barra {
+    margin-bottom: 60px;
+  }
+}

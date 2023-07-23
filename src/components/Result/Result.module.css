@@ -1,0 +1,23 @@
+.result {
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 64px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.text span {
+  color: hsl(259, 100%, 65%);
+}
+
+@media screen and (max-width: 375px) {
+  .result {
+    margin-left: 20px;
+  }
+  .text {
+    font-size: 48px;
+  }
+}

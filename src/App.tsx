@@ -11,21 +11,65 @@ export default function App() {
   const [calculatedDay, setCalculatedDay] = useState("");
   const [calculatedMonth, setCalculatedMonth] = useState("");
   const [calculatedYear, setCalculatedYear] = useState("");
+  //error check
+  const [dayError, setDayError] = useState("")
+  const [monthError, setMonthError] = useState("")
+  const [yearError, setYearError] = useState("")
+
+  function checkForm() {
+    let someError = false
+    const data = new Date()
+
+
+    if (day === "") {
+      setDayError("This fild is required");
+      someError = true;
+    } else if (Number(day) > 31 || Number(day) < 1) {
+      setDayError("Most be a valid day");
+      someError = true;
+    } else setDayError("")
+
+    if (month === "") {
+      setMonthError("This fild is required");
+      someError = true;
+    } else if (Number(month) < 1 || Number(month) > 12) {
+      setMonthError("Most be a valid month");
+      someError = true;
+    } else setMonthError("")
+
+    if (year === "") {
+      setYearError("This fild is required");
+      someError = true;
+    } else if (Number(year) > data.getFullYear()) {
+      setYearError("Most be in the past");
+      someError = true;
+    } else setYearError("")
+
+    if (someError) return false
+
+    const testDate = new Date(Number(year), Number(month) - 1, Number(day))
+    if (Number(month) !== (testDate.getMonth() + 1)) {
+      setDayError("Most be a valid date");
+      someError = true
+    }
+
+    return !someError
+  }
 
   function calculateAge() {
+    if (!checkForm()) return
+
     const today = new Date();
     const todayYear = today.getFullYear()
     const todayMonth = today.getMonth() + 1
     const todayDay = today.getDate()
 
-    console.log(`${todayDay}/${todayMonth}/${todayYear}`);
 
 
     const yearNumber = Number(year)
     const monthNumber = Number(month)
     const dayNumber = Number(day)
 
-    console.log(`${dayNumber}/${monthNumber}/${yearNumber}`);
 
     let yearAge = todayYear - yearNumber
 
@@ -75,7 +119,10 @@ export default function App() {
   return (
     <main>
       <div className={styles.card}>
-        <Forms {...{ day, setDay, month, setMonth, year, setYear }} onSubmited={calculateAge} />
+        <Forms
+          {...{ day, setDay, month, setMonth, year, setYear, dayError, monthError, yearError }}
+          checkForm={calculateAge}
+        />
         <div className={styles.barra} />
         <Result day={calculatedDay} month={calculatedMonth} year={calculatedYear} />
       </div>

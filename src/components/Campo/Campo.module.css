@@ -7,7 +7,7 @@
 }
 
 .campo input {
-  width: 100px;
+  width: 120px;
   font-size: 20px;
   font-weight: 800;
   color: hsl(0, 1%, 44%);
@@ -17,10 +17,29 @@
   border: 1px solid hsl(0, 0%, 86%);
   border-radius: 5px;
   cursor: pointer;
+  -appearance: textfield;
+}
+
+.campo input::-webkit-outer-spin-button,
+.campo input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.erro {
+  color: red;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
 }
 
 @media screen and (max-width: 375px) {
   .campo input {
     width: 80px;
+  }
+
+  .erro {
+    max-width: 80px;
   }
 }
